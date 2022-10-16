@@ -88,6 +88,7 @@ function App() {
       winnigCell: [],
       aiTurn: false,
       humanPlayfirst: true,
+      player: 1,
       message: "",
     }));
   };
@@ -235,7 +236,9 @@ function App() {
                       checked={config.maxDepth === 3}
                       onChange={changeConfig}
                     />
-                    <label htmlFor="medium">Medium (Your winning Chance 40%)</label>
+                    <label htmlFor="medium">
+                      Medium (Your winning Chance 40%)
+                    </label>
                   </div>
 
                   <div className="field-option">
@@ -278,6 +281,23 @@ function App() {
                     <label htmlFor="second">Computer first</label>
                   </div>
                 </fieldset>
+                <div className="config-p">
+                  <p>You are:</p>
+                  <div
+                    className={`config-circle ${
+                      gameState.humanPlayfirst ? "red-sm" : "yellow-sm"
+                    }`}
+                  ></div>
+                </div>
+
+                <div className="config-p">
+                  <p>Computer: </p>
+                  <div
+                    className={`config-circle ${
+                      !gameState.humanPlayfirst ? "red-sm" : "yellow-sm"
+                    }`}
+                  ></div>
+                </div>
               </>
             )}
           </div>
